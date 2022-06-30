@@ -33,3 +33,7 @@ function setup() {
     width = w;
     height = h;
   }
+
+  window.setup = setup;
+  window.draw = draw;
+  window.mousePressed = mousePressed;
