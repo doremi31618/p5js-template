@@ -1,4 +1,5 @@
 // this is a hackway
+// https://www.youtube.com/watch?v=P0bkwncSJag
 var data = [];
 var width = 400, height = 400;
 function setup() {
@@ -33,3 +34,7 @@ function setup() {
     width = w;
     height = h;
   }
+
+  window.setup = setup;
+  window.draw = draw;
+  window.mousePressed = mousePressed;

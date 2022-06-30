@@ -1,0 +1,38 @@
+// a real es6 way to write p5.js
+
+var data = [];
+var width = 400, height = 400;
+new p5(function (p5) {
+  p5.setup = function () {
+    canvas = createCanvas(window.innerWidth, window.innerHeight);
+    canvas.position(0, 0);
+    canvas.class("p5canvas");
+  }
+  p5.draw = function () {
+    background(0);
+
+    for (let p of data) {
+      let x = map(p.x, 0, 1, 0, window.innerWidth);
+      let y = map(p.y, 0, 1, window.innerHeight, 0);
+      fill(255);
+      stroke(255);
+      ellipse(x, y, 8, 8);
+    }
+  }
+  p5.mousePressed = function mousePressed() {
+    let x = map(mouseX, 0, window.innerWidth, 0, 1);
+    let y = map(mouseY, 0, window.innerHeight, 1, 0);
+    let point = createVector(x, y);
+    data.push(point);
+  }
+});
+
+
+
+window.onresize = function () {
+  var w = window.innerWidth;
+  var h = window.innerHeight;
+  canvas.size(w, h);
+  width = w;
+  height = h;
+}
